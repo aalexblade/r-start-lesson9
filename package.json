@@ -1,8 +1,8 @@
 {
-  "name": "goit-59-fs",
+  "name": "r-start-lesson9",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://iMykhailychenko.github.io/goit-59-fs/",
+  "homepage": "https://github.com/aalexblade/r-start-lesson9/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.2",
     "@testing-library/jest-dom": "^5.16.5",
