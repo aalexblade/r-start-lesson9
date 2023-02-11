@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
@@ -10,22 +10,33 @@ import { Layout } from './components/Layout/Layout';
 // import RerenderPage from './pages/ExercisesPage/RerenderPage/RerenderPage';
 // import TimerPage from './pages/ExercisesPage/TimerPage/TimerPage';
 import HomePage from './pages/HomePage/HomePage';
-// import NewPostPage from './pages/NewPostPage/NewPostPage';
+import NewPostPage from './pages/NewPostPage/NewPostPage';
 // import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
-// import PostsListPage from './pages/PostsListPage/PostsListPage';
+import PostsListPage from './pages/PostsListPage/PostsListPage';
 // import CommentsPage from './pages/SinglePostPage/CommentsPage/CommentsPage';
 // import SinglePostPage from './pages/SinglePostPage/SinglePostPage';
 
 export const App = () => {
   return (
-    <Layout>
-      <Header title="Hello world!" />
+    <BrowserRouter>
+      <Layout>
+        <Header title="Hello world!" />
 
-      <HomePage />
-      {/* <UsersList /> */}
-      {/* <Rerender /> */}
+        <Routes>
+          <Route path="" element={<HomePage />} />
+          <Route path="/posts" element={<PostsListPage />} />
+          <Route path="/new-post" element={<NewPostPage />} />
 
-    </Layout>
+          {/* <CommentsPage /> */}
+          {/* <CommentsPage /> */}
+          {/* <CommentsPage /> */}
+          {/* <CommentsPage /> */}
+          {/* <CommentsPage /> */}
+          {/* <CommentsPage /> */}
+
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   );
 };
 
