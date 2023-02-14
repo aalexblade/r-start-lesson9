@@ -6,6 +6,8 @@ import { toast } from 'react-toastify';
 import { confetti } from '../../components/Confetti/Confetti';
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -28,6 +30,13 @@ const LoginPage = () => {
       toast.error('Невірний пароль');
       return;
     }
+
+    setEmail('');
+    setPassword('');
+
+    confetti.run();
+
+    navigate('/');
   };
 
   return (
