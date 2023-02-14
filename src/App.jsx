@@ -10,6 +10,7 @@ import LongRequestPage from './pages/ExercisesPage/LongRequestPage/LongRequestPa
 import RerenderPage from './pages/ExercisesPage/RerenderPage/RerenderPage';
 import TimerPage from './pages/ExercisesPage/TimerPage/TimerPage';
 import HomePage from './pages/HomePage/HomePage';
+import LoginPage from './pages/LoginPage/LoginPage';
 import NewPostPage from './pages/NewPostPage/NewPostPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import PostsListPage from './pages/PostsListPage/PostsListPage';
@@ -24,6 +25,8 @@ export const App = () => {
 
         <Routes>
           <Route path="" element={<HomePage />} />
+
+          <Route path="/login" element={<LoginPage />} />
 
           <Route path="/posts" element={<PostsListPage />} />
 
