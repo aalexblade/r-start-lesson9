@@ -24,7 +24,10 @@ const LoginPage = () => {
     console.log(email);
     console.log(password);
 
-    if (password !123)
+    if (password !== '123') {
+      toast.error('Невірний пароль');
+      return;
+    }
   };
 
   return (
