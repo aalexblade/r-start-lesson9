@@ -11,6 +11,8 @@ const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const [isLoggedId, setIsLoggedId] = useState(false);
+
   const handleChange = event => {
     const { value, name } = event.target;
 
@@ -36,8 +38,12 @@ const LoginPage = () => {
 
     confetti.run();
 
-    navigate('/');
+    navigate('/post', { replace: true });
   };
+
+  if (isLoggedId) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <>

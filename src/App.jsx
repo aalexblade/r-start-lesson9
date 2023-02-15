@@ -36,7 +36,8 @@ export const App = () => {
               <Route path="comments" element={<CommentsPage />} />
             </Route>
 
-            <Route path="/new-post" element={<NewPostPage />} />
+            <Route path="/new-post" element={<Navigate to="/post-new" />} />
+            <Route path="/post-new" element={<NewPostPage />} />
 
             <Route path="/exercises" element={<ExercisesPage />}>
               <Route index element={<Navigate to="timer" />} />
