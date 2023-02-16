@@ -1,23 +1,22 @@
 // import { useEffect } from 'react';
-
-import { Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-// import { Header } from './components/Layout/Header/Header';
 import { Layout } from './components/Layout/Layout';
-import CounterPage from './pages/ExercisesPage/CounterPage/CounterPage';
-import ExercisesPage from './pages/ExercisesPage/ExercisesPage';
-import LongRequestPage from './pages/ExercisesPage/LongRequestPage/LongRequestPage';
-import RerenderPage from './pages/ExercisesPage/RerenderPage/RerenderPage';
-import TimerPage from './pages/ExercisesPage/TimerPage/TimerPage';
-import HomePage from './pages/HomePage/HomePage';
-import LoginPage from './pages/LoginPage/LoginPage';
-import NewPostPage from './pages/NewPostPage/NewPostPage';
-import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
-import PostsListPage from './pages/PostsListPage/PostsListPage';
-import CommentsPage from './pages/SinglePostPage/CommentsPage/CommentsPage';
-import SinglePostPage from './pages/SinglePostPage/SinglePostPage';
+
+const CounterPage = lazy(() => import('./pages/ExercisesPage/CounterPage/CounterPage'));
+const ExercisesPage = lazy(() => import('./pages/ExercisesPage/ExercisesPage'));
+const LongRequestPage = lazy(() => import('./pages/ExercisesPage/LongRequestPage/LongRequestPage'));
+const RerenderPage = lazy(() => import('./pages/ExercisesPage/RerenderPage/RerenderPage'));
+const TimerPage = lazy(() => import('./pages/ExercisesPage/TimerPage/TimerPage'));
+const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
+const NewPostPage = lazy(() => import('./pages/NewPostPage/NewPostPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
+const SinglePostPage = lazy(() => import('./pages/SinglePostPage/SinglePostPage'));
+const CommentsPage = lazy(() => import('./pages/SinglePostPage/CommentsPage/CommentsPage'));
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+const PostsListPage = lazy(() => import('./pages/PostsListPage/PostsListPage'));
 
 export const App = () => {
   return (
