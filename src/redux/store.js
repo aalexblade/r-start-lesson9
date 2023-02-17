@@ -1,30 +1,35 @@
-import { createStore } from 'redux';
+/* eslint-disable import/no-extraneous-dependencies */
 import { devToolsEnhancer } from '@redux-devtools/extension';
+import { combineReducers, createStore } from 'redux';
 
-const reducer = (state, action) => {
-  console.log(action);
-  switch (action.type) {
-    case 'COUNTER':
-      return { counter: state.counter + action.payload };
+import { counterInitState } from './counter/counter.init-state';
+import { counterReducer } from './counter/counter.reducer';
+import { userInitState } from './users/users.init-state';
+import { uesersReducer } from './users/users.reducer';
 
-    default:
-      return state;
-  }
-  // if (action.type === 'PLUSE') {
-  //   return { counter: state.counter + 1 };
-  // }
-
-  // if (action.type === 'MINUS') {
-  //   return { counter: state.counter - 1 };
-  // }
-  // return state;
+const initState = {
+  counter: counterInitState,
+  users: userInitState,
 };
 
-const enhancer = devToolsEnhancer();
-export const store = createStore(reducer, { counter: 0 }, enhancer);
+const rootReducer = combineReducers({
+  counter: counterReducer,
+  users: uesersReducer,
+});
 
-// store.dispatch({ type: 'PLUSE' });
-// store.dispatch({ type: 'MINUS' });
+const enhancer = devToolsEnhancer();
+export const store = createStore(rootReducer, initState, enhancer);
+
+// const reducer = (state, action) => {
+//   console.log(action);
+//   switch (action.type) {
+//     case 'COUNTER':
+//       return { ...state, counter: state.counter + action.payload };
+
+//     default:
+//       return state;
+//   }
+// };
 
 // ===========================================
 // import { configureStore } from '@reduxjs/toolkit';
