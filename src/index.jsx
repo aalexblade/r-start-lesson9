@@ -1,21 +1,22 @@
 import React from 'react';
 
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
 
 import { App } from './App';
+import { store } from './redux/store';
 
 import 'react-toastify/dist/ReactToastify.css';
 import './index.css';
-import './redux/store';
-import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
+
+// import { PersistGate } from 'redux-persist/integration/react';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Provider>
-    <PersistGate>
-      <App />
-    </PersistGate>
+  <Provider store={store}>
+
+    <App />
+
   </Provider>,
 );
 

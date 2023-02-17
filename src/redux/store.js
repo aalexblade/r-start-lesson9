@@ -1,22 +1,30 @@
 import { createStore } from 'redux';
+import { devToolsEnhancer } from '@redux-devtools/extension';
 
 const reducer = (state, action) => {
-  // console.log(state, action);
-  if (action.type === 'PLUSE') {
-    return { counter: state.counter + 1 };
-  }
+  console.log(action);
+  switch (action.type) {
+    case 'COUNTER':
+      return { counter: state.counter + action.payload };
 
-  if (action.type === 'MINUS') {
-    return { counter: state.counter - 1 };
+    default:
+      return state;
   }
-  return state;
+  // if (action.type === 'PLUSE') {
+  //   return { counter: state.counter + 1 };
+  // }
+
+  // if (action.type === 'MINUS') {
+  //   return { counter: state.counter - 1 };
+  // }
+  // return state;
 };
-const store = createStore(reducer, { counter: 0 });
 
-console.log(store.getState());
-store.dispatch({ type: 'PLUSE' });
-store.dispatch({ type: 'MINUS' });
-console.log(store.getState());
+const enhancer = devToolsEnhancer();
+export const store = createStore(reducer, { counter: 0 }, enhancer);
+
+// store.dispatch({ type: 'PLUSE' });
+// store.dispatch({ type: 'MINUS' });
 
 // ===========================================
 // import { configureStore } from '@reduxjs/toolkit';

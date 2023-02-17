@@ -2,19 +2,20 @@ import { useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 
-import { counterAction } from '../../../redux/counter/counter.action';
-import { selectCounter } from '../../../redux/counter/counter.selector';
+// import { counterAction } from '../../../redux/counter/counter.action';
+// import { selectCounter } from '../../../redux/counter/counter.selector';
 
 const CounterPage = () => {
   const dispatch = useDispatch();
-  const counter = useSelector(selectCounter);
+  const counter = useSelector(state => state.counter);
 
   const handleMinus = () => {
-    dispatch(counterAction(-1));
+    dispatch({ type: 'COUNTER', payloud: -1 });
   };
 
   const handlePlus = () => {
-    dispatch(counterAction(1));
+    dispatch({ type: 'COUNTER', payloud: +1 });
+    // dispatch(counterAction(1));
   };
 
   const [isOpen, setIsOpen] = useState(false);
