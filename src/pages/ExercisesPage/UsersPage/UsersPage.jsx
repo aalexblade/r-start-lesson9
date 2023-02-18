@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { NotFound } from '../../../components/NotFound/NotFound';
 import { confetti } from '../../../helpers/Confetti/Confetti';
-import { deleteUserAction } from '../../../redux/counter/counter.action';
-import { usersSearchActions } from '../../../redux/users/users.actions';
+// import { deleteUserAction } from '../../../redux/counter/counter.action';
+import { deleteUserActions, usersSearchActions } from '../../../redux/users/users.actions';
 
 import { UsersItem } from './UsersItem';
 
@@ -20,7 +20,7 @@ const UsersPage = () => {
   };
 
   const handleDelete = id => {
-    dispatch(deleteUserAction(id));
+    dispatch(deleteUserActions(id));
     confetti.run();
   };
 
