@@ -1,10 +1,10 @@
 import { createReducer } from '@reduxjs/toolkit';
 
+import { counterAction } from './counter.action';
 import { counterInitState } from './counter.init-state';
-import { COUNTER } from './counter.types';
 
 export const counterReducer = createReducer(counterInitState, builder => {
-  builder.addCase(COUNTER, (state, { payload }) => {
+  builder.addCase(counterAction, (state, { payload }) => {
     return state + payload;
   });
 });
@@ -20,7 +20,7 @@ export const counterReducer = createReducer(counterInitState, builder => {
 //       return state;
 //   }
 // };
-// ======================старий синтаксис reduxToolKi=================================
+// ======================старий синтаксис reduxToolKit=================================
 // import { createReducer } from '@reduxjs/toolkit';
 // import { counterInitState } from './counter.init-state';
 // import { COUNTER } from './counter.types';

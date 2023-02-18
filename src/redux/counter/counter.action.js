@@ -1,6 +1,8 @@
 import { createAction } from '@reduxjs/toolkit';
 
 export const counterAction = createAction('COUNTER');
+// console.log(counterAction.toString());
+
 // ================redux===================
 // import { DELETE_USERS } from '../users/users.types';
 
