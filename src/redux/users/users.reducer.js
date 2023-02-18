@@ -1,4 +1,4 @@
-import { combineReducers, createReducer } from '@reduxjs/toolkit';
+import { createReducer } from '@reduxjs/toolkit';
 
 import { deleteUserActions, usersSearchActions } from './users.actions';
 import { userInitState } from './users.init-state';
