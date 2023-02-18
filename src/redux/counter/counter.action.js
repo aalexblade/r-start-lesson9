@@ -1,10 +1,10 @@
-import { DELETE_USERS } from '../users/users.types';
+import { createAction } from '@reduxjs/toolkit';
 
-import { COUNTER } from './counter.types';
+export const counterAction = createAction('COUNTER');
+// ================redux===================
+// import { DELETE_USERS } from '../users/users.types';
 
-export const counterAction = (payload) => ({ type: COUNTER, payload });
-export const deleteUserAction = payload => ({ type: DELETE_USERS, payload });
+// import { COUNTER } from './counter.types';
 
-// import { createAction } from '@reduxjs/toolkit';
-
-// export const counterAction = createAction('COUNTER');
+// export const counterAction = (payload) => ({ type: COUNTER, payload });
+// export const deleteUserAction = payload => ({ type: DELETE_USERS, payload });
