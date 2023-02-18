@@ -1,6 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { devToolsEnhancer } from '@redux-devtools/extension';
-import { combineReducers, createStore } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
 
 import { counterInitState } from './counter/counter.init-state';
 import { counterReducer } from './counter/counter.reducer';
@@ -12,13 +10,20 @@ const initState = {
   users: userInitState,
 };
 
-const rootReducer = combineReducers({
-  counter: counterReducer,
-  users: uesersReducer,
-});
+// const rootReducer = combineReducers({
+//   counter: counterReducer,
+//   users: uesersReducer,
+// });
 
-const enhancer = devToolsEnhancer();
-export const store = createStore(rootReducer, initState, enhancer);
+// export const store = createStore(rootReducer, initState);
+export const store = configureStore({
+  devTools: true,
+  preloadedState: initState,
+  reducer: {
+    counter: counterReducer,
+    users: uesersReducer,
+  },
+});
 
 // const reducer = (state, action) => {
 //   console.log(action);
