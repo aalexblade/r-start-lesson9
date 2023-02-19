@@ -1,6 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
 import {
-  persistReducer,
   persistStore,
   FLUSH,
   REHYDRATE,
@@ -9,7 +8,6 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
 
 import { counterInitState } from './counter/counter.init-state';
 import { counterReducer } from './counter/counter.reducer';
@@ -21,19 +19,10 @@ const initState = {
   users: userInitState,
 };
 
-const persistConfig = {
-  key: 'goit',
-  storage,
-  whitelist: ['data'],
-  // blacklist: ['search'],
-};
-
 // const rootReducer = combineReducers({
 //   counter: counterReducer,
 //   users: usersReducer,
 // });
-
-const persistedReducer = persistReducer(persistConfig, usersReducer);
 
 // export const store = createStore(rootReducer, initState);
 export const store = configureStore({
@@ -41,7 +30,7 @@ export const store = configureStore({
   preloadedState: initState,
   reducer: {
     counter: counterReducer,
-    users: persistedReducer,
+    users: usersReducer,
   },
 
   middleware: getDefaultMiddleware =>

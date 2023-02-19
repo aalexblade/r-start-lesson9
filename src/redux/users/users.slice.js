@@ -18,7 +18,15 @@ const userSlice = createSlice({
 });
 
 export const { usersSearchAction, deleteUserAction } = userSlice.actions;
-export const usersReducer = userSlice.reducer;
+
+const persistConfig = {
+  key: 'goit',
+  storage,
+  whitelist: ['data'],
+  // blacklist: ['search'],
+};
+
+export const usersReducer = persistReducer(persistConfig, userSlice.reducer);
 
 // export const usersReducer = persistReducer(persistConfig, userSlice.reducer);
 
