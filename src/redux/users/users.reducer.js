@@ -61,6 +61,6 @@ export const usersReducer = createReducer(userInitState, bilder => {
     // return { ...state, search: payload };
     state.search = payload;
   }).addCase(deleteUserActions, (state, { payload }) => {
-    state.data = state.filter(user => user.id !== payload);
+    state.data = state.data.filter(user => user.id !== payload);
   });
 });
