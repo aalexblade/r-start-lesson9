@@ -3,7 +3,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { counterInitState } from './counter/counter.init-state';
 import { counterReducer } from './counter/counter.reducer';
 import { userInitState } from './users/users.init-state';
-import { usersReducer } from './users/users.reducer';
+import { usersReducer } from './users/users.slice';
 
 const initState = {
   counter: counterInitState,
